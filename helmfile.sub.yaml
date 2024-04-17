@@ -1,0 +1,8 @@
+environments:
+  default:
+    values:
+      - v1 : false
+---
+releases:
+  - name: app2
+    chart: ./app2

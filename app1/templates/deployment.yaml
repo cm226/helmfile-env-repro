@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: somename
+  labels:
+    app.kubernetes.io/name: somename
+    app.kubernetes.io/instance: somename
+    app.kubernetes.io/version: "1.0"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: somename
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: somename
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: nginx
+          ports:
+            - containerPort: 80

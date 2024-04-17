@@ -1,0 +1,12 @@
+environments:
+  env1:
+    values:
+        - v1: true
+---
+helmfiles:
+  - path: './helmfile.sub.yaml'
+    values:
+      - v1: true
+releases:
+  - name: app1
+    chart: ./app1
